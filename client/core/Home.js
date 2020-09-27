@@ -18,10 +18,12 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.openTitle
     },
     media: {
-        minHeight: 400
+        minHeight: 400,
+        maxWidth: 10
     }
 }))
-
+//Look into why the styles disappear from the CardMedia component
+//Current fix is overriding styles
 export default function Home() {
     const classes = useStyles()
     return (
@@ -29,8 +31,8 @@ export default function Home() {
             <Typography variant="h6" className={classes.title}>
                 Home Page
             </Typography>
-
-            <CardMedia className={classes.media} image={javascriptLogo} title="Javascript Logo"/>
+            
+            <CardMedia className={classes.media} style={{minHeight: '400px'}} image={javascriptLogo} title="Javascript Logo"/>
             
             <CardContent>
                 <Typography variant="body2" component="p">
