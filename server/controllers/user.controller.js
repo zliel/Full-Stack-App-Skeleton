@@ -34,16 +34,17 @@ const read = (req, res) => {
     req.profile.salt = undefined 
     return res.json(req.profile)
 }
-const update = async (req, res, next) => { 
+const update = async (req, res) => { 
     try {
         let user = req.profile
         user = extend(user, req.body)
         user.updated = Date.now()
-        await user,save()
+        await user.save()
         user.hashed_password = undefined
         user.salt = undefined
         res.json(user)
     } catch (err) {
+        console.log("DANG")
         return res.status(400).json({ error: errorHandler.getErrorMessage(err) })
     }
 }
