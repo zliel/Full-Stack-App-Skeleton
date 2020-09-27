@@ -2,11 +2,11 @@
   "name": "full-stack-app-skeleton",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/server.generated.js",
   "scripts": {
     "development": "nodemon",
     "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
-    "start": "NODE_ENV=production node ./dist/server.generated.js"
+    "start": "SET NODE_ENV=production & node ./dist/server.generated.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "babel-loader": "^8.1.0",
     "file-loader": "^6.1.0",
     "nodemon": "^2.0.4",
+    "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.2",
