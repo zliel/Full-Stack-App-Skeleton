@@ -36,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     margin: 'auto',
     marginBottom: theme.spacing(2)
   }
-}))
+}), { name: "MuiSignInComponent" })
 
 export default function Signin(props) {
     const classes = useStyles()

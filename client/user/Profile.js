@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing(3),
         color: theme.palette.protectedTile
     }
-}))
+}), { name: "MuiProfileComponent" })
 
 export default function Profile({ match }) {
     const classes = useStyles()

@@ -17,7 +17,7 @@ const useStyle = makeStyles(theme => {
     root: {
         color: "#fff"
     }
-})
+}, { name: "MuiDeleteUserComponent"})
 
 export default function DeleteUser(props) {
     const classes = useStyle()

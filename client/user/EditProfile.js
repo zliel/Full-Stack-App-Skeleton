@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
         margin: 'auto',
         marginBottom: theme.spacing(2)
     }
-}))
+}), { name: "MuiEditProfileComponent" })
 
 export default function EditProfile({ match }) {
     const classes = useStyles()

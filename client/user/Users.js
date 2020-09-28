@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
       margin: `${theme.spacing(4)}px 0 ${theme.spacing(2)}px`,
       color: theme.palette.openTitle
     }
-  }))
+  }), { name: "MuiUsersComponent"})
 
 export default function Users() {
     const classes = useStyles()

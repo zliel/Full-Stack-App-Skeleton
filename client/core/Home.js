@@ -15,15 +15,15 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         padding: `${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme.spacing(2)}px`,
-        color: theme.palette.openTitle
+        color: theme.palette.protectedTitle
     },
     media: {
         minHeight: 400,
-        maxWidth: 10
     }
-}))
-//Look into why the styles disappear from the CardMedia component
-//Current fix is overriding styles
+}), { name: "MuiHomeComponent"})
+//New fix for mismatched classes/styles in production found in a Medium article at https://medium.com/javascript-in-plain-english/fixing-material-uis-classname-mismatch-for-react-75c6c2a2c409
+//Fix was to add in the { name: "..." } parameter at the end of the makeStyles function
+
 export default function Home() {
     const classes = useStyles()
     return (
@@ -32,7 +32,7 @@ export default function Home() {
                 Home Page
             </Typography>
             
-            <CardMedia className={classes.media} style={{minHeight: '400px'}} image={javascriptLogo} title="Javascript Logo"/>
+            <CardMedia className={classes.media} image={javascriptLogo} title="Javascript Logo"/>
             
             <CardContent>
                 <Typography variant="body2" component="p">

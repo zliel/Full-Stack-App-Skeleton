@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
       margin: 'auto',
       marginBottom: theme.spacing(2)
     }
-  }))
+  }), { name: "MuiSignupComponent" })
 
 export default function Signup() {
     const classes = useStyles()
