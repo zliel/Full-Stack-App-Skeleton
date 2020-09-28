@@ -7,10 +7,13 @@ import cors from 'cors'
 import Template from './../template'
 import userRoutes from './routes/user.routes'
 import authRoutes from './routes/auth.routes'
+
 //import devBundle from './devBundle' //Remove these before sending them out
+
 import path from 'path'
 const CURRENT_WORKING_DIR = process.cwd()
 
+//Server-side Rendering imports
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
@@ -21,13 +24,14 @@ import theme from './../client/theme'
 const app = express()
 //devBundle.compile(app) //Remove these before sending them out
 require('dotenv').config()
-app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(cookieParser())
 app.use(compression())
 app.use(helmet())
 app.use(cors())
+app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
+
 app.use('/', userRoutes)
 app.use('/', authRoutes)
 app.use((err, req, res, next) => {
@@ -51,16 +55,15 @@ app.get('*', (req, res) => {
         )
     )
 
-    if (context.url) {
-        return res.redirect(303, context.url)
-    }
-
     const css = sheets.toString()
     res.status(200).send(Template({
         markup: markup,
         css: css
     }))
-})
 
+    if (context.url) {
+        return res.redirect(303, context.url)
+    }
+})
 
 export default app
